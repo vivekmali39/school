@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://school-db.database.windows.net:1433;database=school;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: school_admin
+    password: Principal@123
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      ddl-auto: update
+
+server:
+  port: 8080
