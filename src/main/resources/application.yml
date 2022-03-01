@@ -1,8 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:sqlserver://school-db.database.windows.net:1433;database=school;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: school_admin
-    password: Principal@123
   jpa:
     show-sql: true
     hibernate:
@@ -11,3 +7,11 @@ spring:
 
 server:
   port: 8080
+
+azure:
+  keyvault:
+    client-id: 34801cb7-0b09-47d8-835a-64ae6da24eb8
+    client-key: lhW7Q~G6ZxpvEysEsbtfi53IqFUUl9ipE5xoB
+    enabled: true
+    tenant-id: 0c11371c-423e-4cb8-9055-da976bf9304f
+    uri: https://vm-school-key-vault.vault.azure.net/
