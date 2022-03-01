@@ -1,13 +1,12 @@
 package com.school.entity;
 
 import com.school.domain.Gender;
-import com.school.domain.RoleType;
+import com.school.domain.Role;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "School_User")
@@ -39,6 +38,6 @@ public class User {
     @ElementCollection
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "user_roles")
-    private List<RoleType> roles;
+    private List<Role> roles;
 
 }

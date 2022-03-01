@@ -1,5 +1,5 @@
 package com.school.domain;
 
-public enum RoleType {
+public enum Role {
     ADMIN, TEACHER, STAFF, STUDENT
 }
