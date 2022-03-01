@@ -1,10 +1,12 @@
 package com.school.entity;
 
 import com.school.domain.Gender;
+import com.school.domain.RoleType;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,7 +36,9 @@ public class User {
 
     private LocalDate dateOfBirth;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Set<Role> roles;
+    @ElementCollection
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "user_roles")
+    private List<RoleType> roles;
 
 }
