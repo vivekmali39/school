@@ -1,5 +1,6 @@
 package com.school.configuration;
 
+import com.school.domain.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,11 +17,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("vm")
                 .password("vm")
-                .roles("ADMIN")
+                .roles(Role.ADMIN.name())
                 .and()
                 .withUser("vm2")
                 .password("vm2")
-                .roles("STUDENT");
+                .roles(Role.STUDENT.name());
     }
 
     @Bean
@@ -31,9 +32,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/api/teachers/**").hasAnyRole("ADMIN", "TEACHER")
-                .antMatchers("/api/staff/**").hasAnyRole("ADMIN", "TEACHER", "STAFF")
-                .antMatchers("/api/students/**").hasAnyRole("ADMIN", "TEACHER", "STAFF", "STUDENT")
+                .antMatchers("/api/teachers/**").hasAnyRole(Role.ADMIN.name(), Role.TEACHER.name())
+                .antMatchers("/api/staff/**").hasAnyRole(Role.ADMIN.name(), Role.TEACHER.name(), Role.STAFF.name())
+                .antMatchers("/api/students/**").hasAnyRole(Role.ADMIN.name(), Role.TEACHER.name(), Role.STAFF.name(), Role.STUDENT.name())
                 .and().formLogin();
     }
 }
