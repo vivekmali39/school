@@ -52,13 +52,11 @@ public class TeacherService {
     }
 
     private TeacherDto convertToDto(Teacher teacher) {
-        TeacherDto teacherDto = modelMapper.map(teacher, TeacherDto.class);
-        return teacherDto;
+        return modelMapper.map(teacher, TeacherDto.class);
     }
 
     private Teacher convertToEntity(TeacherDto teacherDto) {
-        Teacher teacher = modelMapper.map(teacherDto, Teacher.class);
-        return teacher;
+        return modelMapper.map(teacherDto, Teacher.class);
     }
 
 }

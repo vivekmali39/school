@@ -52,13 +52,11 @@ public class StaffService {
     }
 
     private StaffDto convertToDto(Staff staff) {
-        StaffDto staffDto = modelMapper.map(staff, StaffDto.class);
-        return staffDto;
+        return modelMapper.map(staff, StaffDto.class);
     }
 
     private Staff convertToEntity(StaffDto staffDto) {
-        Staff staff = modelMapper.map(staffDto, Staff.class);
-        return staff;
+        return modelMapper.map(staffDto, Staff.class);
     }
 
 }
