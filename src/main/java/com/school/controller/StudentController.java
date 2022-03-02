@@ -1,5 +1,6 @@
 package com.school.controller;
 
+import com.school.dto.StudentDto;
 import com.school.entity.Student;
 import com.school.service.StudentService;
 import io.swagger.annotations.ApiOperation;
@@ -19,15 +20,15 @@ public class StudentController {
     @PostMapping("/students")
     @ApiOperation(value = "Add new student in school system",
             notes = "Add new student in school system, this api will create new student record in school system.",
-            response = Student.class)
-    public Student addStudent(@RequestBody Student student) {
+            response = StudentDto.class)
+    public StudentDto addStudent(@RequestBody StudentDto student) {
         return studentService.addStudent(student);
     }
 
     @GetMapping("/students")
     @ApiOperation(value = "Fetch details of all students",
             notes = "This API will fetch details of all students in school system.")
-    public List<Student> getStudents() {
+    public List<StudentDto> getStudents() {
         return studentService.getAllStudents();
     }
 
@@ -35,8 +36,8 @@ public class StudentController {
     @ApiOperation(value = "Fetch details of student by id",
             notes = "Fetch details of student in school system based on id.",
             response = Student.class)
-    public Student getStudent(@ApiParam(value = "ID value for the student", required = true)
-                              @PathVariable Long id) {
+    public StudentDto getStudent(@ApiParam(value = "ID value for the student", required = true)
+                                 @PathVariable Long id) {
         return studentService.getStudent(id);
     }
 

@@ -1,7 +1,6 @@
 package com.school.controller;
 
-import com.school.entity.Staff;
-import com.school.entity.Teacher;
+import com.school.dto.TeacherDto;
 import com.school.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,23 +19,23 @@ public class TeacherController {
     @PostMapping("/teachers")
     @ApiOperation(value = "Add new teacher in school system",
             notes = "Add new teacher in school system, this api will create new teacher record in school system.",
-            response = Teacher.class)
-    public Staff addTeacher(Teacher teacher) {
-        return teacherService.addTeacher(teacher);
+            response = TeacherDto.class)
+    public TeacherDto addTeacher(TeacherDto teacherDto) {
+        return teacherService.addTeacher(teacherDto);
     }
 
     @GetMapping("/teachers")
     @ApiOperation(value = "Fetch details of all teachers",
             notes = "This API will fetch details of all teachers in school system.")
-    public List<Teacher> getAllTeacher() {
+    public List<TeacherDto> getAllTeacher() {
         return teacherService.getAllTeachers();
     }
 
     @GetMapping("/teachers/{id}")
     @ApiOperation(value = "Fetch details of teacher by id",
             notes = "Fetch details of teacher in school system based on id.")
-    public Staff getTeacher(@ApiParam(value = "ID value for the teacher", required = true)
-                            @PathVariable("id") Long id) {
+    public TeacherDto getTeacher(@ApiParam(value = "ID value for the teacher", required = true)
+                                 @PathVariable("id") Long id) {
         return teacherService.getTeacher(id);
     }
 

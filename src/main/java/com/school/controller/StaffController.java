@@ -1,6 +1,6 @@
 package com.school.controller;
 
-import com.school.entity.Staff;
+import com.school.dto.StaffDto;
 import com.school.service.StaffService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -19,23 +19,23 @@ public class StaffController {
     @PostMapping("/staff")
     @ApiOperation(value = "Add new staff in school system",
             notes = "Add new staff in school system, this api will create new staff record in school system.",
-            response = Staff.class)
-    public Staff addStaff(Staff staff) {
+            response = StaffDto.class)
+    public StaffDto addStaff(StaffDto staff) {
         return staffService.addStaff(staff);
     }
 
     @GetMapping("/staff")
     @ApiOperation(value = "Fetch details of all staff members",
             notes = "Fetch details of all staff members in school system.")
-    public List<Staff> getAllStaff() {
+    public List<StaffDto> getAllStaff() {
         return staffService.getAllStaff();
     }
 
     @GetMapping("/staff/{id}")
     @ApiOperation(value = "Fetch staff details based on id",
             notes = "Fetch staff details from school system based on id.",
-            response = Staff.class)
-    public Staff getStaff(@ApiParam(value = "ID value for the staff", required = true)
+            response = StaffDto.class)
+    public StaffDto getStaff(@ApiParam(value = "ID value for the staff", required = true)
                           @PathVariable("id") Long id) {
         return staffService.getStaff(id);
     }
