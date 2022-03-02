@@ -1,5 +1,5 @@
 package com.school.domain;
 
 public enum Gender {
-    Male, Female
+    MALE, FEMALE, OTHER
 }

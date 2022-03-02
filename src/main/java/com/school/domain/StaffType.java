@@ -1,5 +1,5 @@
 package com.school.domain;
 
 public enum StaffType {
-    Teaching, NonTeaching
+    TEACHING, NON_TEACHING
 }
