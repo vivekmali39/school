@@ -1,7 +1,6 @@
 package com.school.controller;
 
 import com.school.dto.StudentDto;
-import com.school.entity.Student;
 import com.school.service.StudentService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -35,7 +34,7 @@ public class StudentController {
     @GetMapping("/students/{id}")
     @ApiOperation(value = "Fetch details of student by id",
             notes = "Fetch details of student in school system based on id.",
-            response = Student.class)
+            response = StudentDto.class)
     public StudentDto getStudent(@ApiParam(value = "ID value for the student", required = true)
                                  @PathVariable Long id) {
         return studentService.getStudent(id);

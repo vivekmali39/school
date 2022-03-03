@@ -33,7 +33,8 @@ public class TeacherController {
 
     @GetMapping("/teachers/{id}")
     @ApiOperation(value = "Fetch details of teacher by id",
-            notes = "Fetch details of teacher in school system based on id.")
+            notes = "Fetch details of teacher in school system based on id.",
+            response = TeacherDto.class)
     public TeacherDto getTeacher(@ApiParam(value = "ID value for the teacher", required = true)
                                  @PathVariable("id") Long id) {
         return teacherService.getTeacher(id);
