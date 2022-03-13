@@ -51,11 +51,11 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    private StudentDto convertToDto(Student student) {
+    protected StudentDto convertToDto(Student student) {
         return modelMapper.map(student, StudentDto.class);
     }
 
-    private Student convertToEntity(StudentDto studentDto) {
+    protected Student convertToEntity(StudentDto studentDto) {
         return modelMapper.map(studentDto, Student.class);
     }
 
